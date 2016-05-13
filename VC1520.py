@@ -1,3 +1,4 @@
+import time
 from opencbm import *
 
 class VC1520:
@@ -79,7 +80,7 @@ class VC1520:
     def scribe(self, mode):
         self._write(5, "%d" % mode)
 
-    def lower_case(self, lower):
+    def lower_case(self, lower=True):
         if lower:
             value = "1"
         else:
@@ -88,5 +89,6 @@ class VC1520:
 
     def reset(self):
         self._write(7, "")
+        time.sleep(20)
 
 
